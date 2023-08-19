@@ -29,15 +29,15 @@ public class MyApp {
 
         //run timeda servis objesini belirleyelim
         MessageService service1 = null;
-        String serviceName = "Mail Service";
+        String serviceName = "MailService";
 
         if(args.length>0){
             serviceName = args[0];
         }
 
-        if(serviceName.equalsIgnoreCase("Mail Service")){
+        if(serviceName.equalsIgnoreCase("MailService")){
             service1 = new MailService();
-        }else if(serviceName.equalsIgnoreCase("Sms Service")){
+        }else if(serviceName.equalsIgnoreCase("SmsService")){
             service1 = new SmsService();
         }
         service1.sendMessage(message);
