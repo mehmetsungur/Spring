@@ -2,6 +2,9 @@
 
 import domain.Message;
 import domain.Sms;
+import repo.DBRepository;
+import repo.FileRepository;
+import repo.Repository;
 import service.MailService;
 import service.MessageService;
 import service.SmsService;
@@ -29,26 +32,30 @@ public class MyApp {
         //mailService1.sendMessage(message);
 
         //run timeda servis objesini belirleyelim
-        MessageService service1 = null;
-        String serviceName = "MailService";
+        //MessageService service1 = null;
+        //String serviceName = "MailService";
 
-        if(args.length>0){
-            serviceName = args[0];
-        }
+        //if(args.length>0){
+        //    serviceName = args[0];
+        //}
 
-        if(serviceName.equalsIgnoreCase("MailService")){
-            service1 = new MailService();
-        }else if(serviceName.equalsIgnoreCase("SmsService")){
-            service1 = new SmsService();
-        }
-        service1.sendMessage(message);
+        //if(serviceName.equalsIgnoreCase("MailService")){
+        //    service1 = new MailService();
+        //}else if(serviceName.equalsIgnoreCase("SmsService")){
+        //    service1 = new SmsService();
+        //}
+        //service1.sendMessage(message);
 
         //message ı kalıcı hale getirmek
-        MessageService messageService = new MailService();
+
+        Repository repository1 = new FileRepository();
+        Repository repository2 = new DBRepository();
+
+        MessageService messageService = new MailService(repository1);
         messageService.sendMessage(message);
         messageService.saveMessage(message);
 
-        MessageService messageService1 = new SmsService();
+        MessageService messageService1 = new SmsService(repository2);
         messageService1.sendMessage(message);
         messageService1.saveMessage(message);
     }

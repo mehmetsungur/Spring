@@ -6,6 +6,12 @@ import repo.FileRepository;
 import repo.Repository;
 
 public class SmsService implements MessageService {
+    private Repository repository;
+
+    public SmsService(Repository repository) {
+        this.repository = repository;
+    }
+
     public void sendMessage(Message message){
         System.out.println("Ben bir Smsservisiyim " + message.getMessage());
     }
@@ -13,7 +19,7 @@ public class SmsService implements MessageService {
     @Override
     public void saveMessage(Message message) {
         //mesajı kaydetmek için repo objesi
-        Repository repository = new FileRepository();
+        //Repository repository = new FileRepository();
         repository.save(message);
     }
 }
