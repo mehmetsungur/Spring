@@ -12,20 +12,20 @@ public class MyApp {
 
         //2. Servis classı oluşturalım.
         //Messajı mail ile gönderimi
-        MailService mailService = new MailService();
-        mailService.sendMessage(message);
+        //MailService mailService = new MailService();
+        //mailService.sendMessage(message);
 
         //3. Servis classı oluşturalım.
         //sms mail ile gönderimi
-        SmsService smsService = new SmsService();
-        smsService.sendMessage(message);
+        //SmsService smsService = new SmsService();
+        //smsService.sendMessage(message);
 
         // Interface yapısı
-        MessageService smsService1 = new SmsService();
-        smsService1.sendMessage(message);
+        //MessageService smsService1 = new SmsService();
+        //smsService1.sendMessage(message);
 
-        MessageService mailService1 = new MailService();
-        mailService1.sendMessage(message);
+        //MessageService mailService1 = new MailService();
+        //mailService1.sendMessage(message);
 
         //run timeda servis objesini belirleyelim
         MessageService service1 = null;
@@ -40,5 +40,6 @@ public class MyApp {
         }else if(serviceName.equalsIgnoreCase("Sms Service")){
             service1 = new SmsService();
         }
+        service1.sendMessage(message);
     }
 }
