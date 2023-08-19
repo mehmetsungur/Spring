@@ -1,9 +1,11 @@
 package service;
 
 import domain.Message;
+import org.springframework.stereotype.Component;
 import repo.DBRepository;
 import repo.Repository;
 
+@Component
 public class MailService implements MessageService{
     private Repository repository;
 

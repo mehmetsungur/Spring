@@ -1,7 +1,9 @@
 package com.modulcar.service;
 
 import com.modulcar.domain.Message;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MailServie implements MessageService {
     @Override
     public void sendMessage(Message message) {
