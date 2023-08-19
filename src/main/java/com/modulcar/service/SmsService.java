@@ -4,13 +4,15 @@ import com.modulcar.domain.Message;
 import com.modulcar.repo.FileRepository;
 import com.modulcar.repo.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SmsService implements MessageService{
+    @Autowired
+    @Qualifier("FileRepository")
     private Repository repository;
 
-    @Autowired
     public SmsService(Repository repository) {
         this.repository = repository;
     }
