@@ -1,6 +1,7 @@
 //1. Message classını oluşturalım.
 
 import domain.Message;
+import domain.Sms;
 import service.MailService;
 import service.MessageService;
 import service.SmsService;
@@ -41,5 +42,14 @@ public class MyApp {
             service1 = new SmsService();
         }
         service1.sendMessage(message);
+
+        //message ı kalıcı hale getirmek
+        MessageService messageService = new MailService();
+        messageService.sendMessage(message);
+        messageService.saveMessage(message);
+
+        MessageService messageService1 = new SmsService();
+        messageService1.sendMessage(message);
+        messageService1.saveMessage(message);
     }
 }
