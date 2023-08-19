@@ -4,7 +4,7 @@ import com.modulcar.domain.Message;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MailServie implements MessageService {
+public class MailService implements MessageService {
     @Override
     public void sendMessage(Message message) {
         System.out.println("Mail Service " + message.getMessage());
