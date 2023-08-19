@@ -1,10 +1,10 @@
 package com.modulcar.app;
 
-import com.modulcar.AppConfiguration;
 import com.modulcar.domain.Message;
+import com.modulcar.AppConfiguration;
+import com.modulcar.service.SmsService;
 import com.modulcar.service.MailService;
 import com.modulcar.service.MessageService;
-import com.modulcar.service.SmsService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
