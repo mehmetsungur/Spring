@@ -20,5 +20,9 @@ public class MyApplication {
 
         MessageService serviceSms = context.getBean(SmsService.class);
         serviceSms.sendMessage(message);
+
+        MessageService serviceMail1 = context.getBean(MailService.class);
+        serviceMail1.sendMessage(message);
+        serviceMail1.saveMessage(message);
     }
 }
