@@ -13,6 +13,6 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     public List<Student> getAll() {
-
+        return studentRepository.findAll(); // SELECT * FROM students
     }
 }
