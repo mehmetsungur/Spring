@@ -3,9 +3,9 @@ package com.modulcar.domain;
 import lombok.*;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
