@@ -44,10 +44,18 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
 
-    // getById()
-    @GetMapping("{id}") //localhost:8080/students/1
+    // getStudentWithPath()
+    @GetMapping("/{id}") //localhost:8080/students/1
     public ResponseEntity<Student> getStudentWithPath(@PathVariable("id") Long id){
         Student student = studentService.findStudent(id);
         return ResponseEntity.ok(student);
+    }
+
+    // delete()
+    @GetMapping("/{id}") //localhost:8080/students/1
+    public ResponseEntity<String> deleteStudent(@PathVariable("id") Long id){
+        studentService.deleteStudent(id);
+        String message = "Student is deleted successfully";
+        return new ResponseEntity<>(message,HttpStatus.OK);
     }
 }
