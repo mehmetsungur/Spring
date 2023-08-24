@@ -31,7 +31,8 @@ public class StudentService {
                 new ResourceNotFoundException("Student not found with id: " + id));
     }
 
-    public Student deleteStudent(Long id) {
-        return studentRepository.deleteById(id);
+    public void deleteStudent(Long id) {
+        Student student = findStudent(id);
+        studentRepository.delete(student);
     }
 }
