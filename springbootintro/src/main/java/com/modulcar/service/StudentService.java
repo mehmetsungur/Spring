@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.modulcar.exception.ConflictException;
 import com.modulcar.repository.StudentRepository;
+import com.modulcar.exception.ResourceNotFoundException;
 
 import java.util.List;
 
@@ -23,5 +24,10 @@ public class StudentService {
             throw new ConflictException("Email is already exist!");
         }
         studentRepository.save(student);
+    }
+
+    public Student findStudent(Long id) {
+        return studentRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException("Student not found with id: " + id));
     }
 }

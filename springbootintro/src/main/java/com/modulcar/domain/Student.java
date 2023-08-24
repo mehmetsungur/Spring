@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Student {
-    /*    @Getter*/
+    // @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
@@ -25,8 +25,9 @@ public class Student {
     @NotNull(message = "first name can not be null")
     @NotBlank(message = "first name can not be white space")
     @Size(min=2,max = 25,message = "First name '${validatedValue}' must be between {min} and {max} long")
-/*    @Getter
-    @Setter*/
+    /* @Getter
+       @Setter
+    */
     @Column(nullable = false, length = 25)
     private /*final*/ String name; //
 

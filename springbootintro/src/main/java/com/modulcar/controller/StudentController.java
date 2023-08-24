@@ -36,4 +36,18 @@ public class StudentController {
 
         return new ResponseEntity<>(map, HttpStatus.CREATED); // map + 201
     }
+
+    // getById()
+    @GetMapping("/query") //localhost:8080/students/query?id=1
+    public ResponseEntity<Student> getStudent(@RequestParam("id") Long id){
+        Student student = studentService.findStudent(id);
+        return ResponseEntity.ok(student);
+    }
+
+    // getById()
+    @GetMapping("{id}") //localhost:8080/students/1
+    public ResponseEntity<Student> getStudentWithPath(@PathVariable("id") Long id){
+        Student student = studentService.findStudent(id);
+        return ResponseEntity.ok(student);
+    }
 }
