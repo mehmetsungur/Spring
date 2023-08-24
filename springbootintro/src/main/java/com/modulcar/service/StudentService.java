@@ -22,5 +22,6 @@ public class StudentService {
         if(studentRepository.existsByEmail(student.getEmail())){
             throw new ConflictException("Email is already exist!");
         }
+        studentRepository.save(student);
     }
 }
