@@ -35,4 +35,7 @@ public class StudentService {
         Student student = findStudent(id);
         studentRepository.delete(student);
     }
+
+    public void updateStudent(Long id) {
+    }
 }

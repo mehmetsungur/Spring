@@ -51,10 +51,18 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
 
-    // delete()
-    @GetMapping("/{id}") //localhost:8080/students/1
+    // deleteStudent()
+    @DeleteMapping("/{id}") //localhost:8080/students/1
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Long id){
         studentService.deleteStudent(id);
+        String message = "Student is deleted successfully";
+        return new ResponseEntity<>(message,HttpStatus.OK);
+    }
+
+    // updateStudent()
+    @PutMapping("/{id}") //localhost:8080/students/1
+    public ResponseEntity<String> updateStudent(@PathVariable Long id, @RequestBody Student student){
+        studentService.updateStudent(id);
         String message = "Student is deleted successfully";
         return new ResponseEntity<>(message,HttpStatus.OK);
     }
