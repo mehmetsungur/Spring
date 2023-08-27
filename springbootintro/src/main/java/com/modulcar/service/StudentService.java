@@ -2,6 +2,7 @@ package com.modulcar.service;
 
 import java.util.List;
 import com.modulcar.domain.Student;
+import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.modulcar.exception.ConflictException;
@@ -35,6 +36,18 @@ public class StudentService {
         studentRepository.delete(student);
     }
 
-    public void updateStudent(Long id) {
+    public void updateStudent(Long id, StudentDTO studentDTO) {
+        Student student = findStudent(id);
+        boolean emailExist = studentRepository.existsByEmail(studentDTO.getEmail());
+        if(emailExist && !studentDTO.getEmail().equals(student.getEmail())){
+            throw new ConflictException("Email is already exist");
+        }
+        student.setEmail(studentDTO.getEmail());
+        student.setGrade(studentDTO.getGrade());
+        student.setName(studentDTO.getFirstName());
+        student.setLastName(studentDTO.getLastName());
+        student.setPhoneNumber(studentDTO.getPhoneNumber());
+
+        studentRepository.save(student);
     }
 }

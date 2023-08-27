@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.HashMap;
 import jakarta.validation.Valid;
 import com.modulcar.domain.Student;
+import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
 import com.modulcar.service.StudentService;
 import org.springframework.http.HttpStatus;
@@ -59,9 +60,9 @@ public class StudentController {
     }
 
     // updateStudent()
-    @PutMapping("/{id}") //localhost:8080/students/1
-    public ResponseEntity<String> updateStudent(@PathVariable Long id, @RequestBody Student student){
-        studentService.updateStudent(id);
+    @PutMapping("/{id}") //localhost:8080/students/1 + PUT + JSON
+    public ResponseEntity<String> updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDTO){
+        studentService.updateStudent(id, studentDTO);
         String message = "Student is deleted successfully";
         return new ResponseEntity<>(message,HttpStatus.OK);
     }
