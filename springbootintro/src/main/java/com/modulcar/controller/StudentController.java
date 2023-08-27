@@ -8,7 +8,11 @@ import com.modulcar.domain.Student;
 import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
 import com.modulcar.service.StudentService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,5 +69,13 @@ public class StudentController {
         studentService.updateStudent(id, studentDTO);
         String message = "Student is deleted successfully";
         return new ResponseEntity<>(message,HttpStatus.OK);
+    }
+
+    @GetMapping("/page") //localhost:8080/students/page?page=0&size=10&sort=name&direction=ASC + GET
+    public ResponseEntity<Page<Student>> getAllWithPage(@RequestParam("page") int page, @RequestParam("size") int size, @RequestParam("sort") String prop, @RequestParam("direction") Sort.Direction direction){
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
+        Page<Student> studentPage = studentService.getAllWithPage(pageable);
+
+        return ResponseEntity.ok(studentPage);
     }
 }

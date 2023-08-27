@@ -4,6 +4,8 @@ import java.util.List;
 import com.modulcar.domain.Student;
 import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.modulcar.exception.ConflictException;
 import com.modulcar.repository.StudentRepository;
@@ -49,5 +51,9 @@ public class StudentService {
         student.setPhoneNumber(studentDTO.getPhoneNumber());
 
         studentRepository.save(student);
+    }
+
+    public Page<Student> getAllWithPage(Pageable pageable) {
+        return null;
     }
 }
