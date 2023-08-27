@@ -34,11 +34,11 @@ public class StudentDTO {
 
     public StudentDTO(Student student){
         this.id = student.getId();
-        this.firstName = student.getName();
-        this.lastName = student.getLastName();
         this.grade = student.getGrade();
         this.email = student.getEmail();
-        this.phoneNumber = student.getPhoneNumber();
+        this.firstName = student.getName();
+        this.lastName = student.getLastName();
         this.createDate = student.getCreateDate();
+        this.phoneNumber = student.getPhoneNumber();
     }
 }
