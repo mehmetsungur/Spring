@@ -58,6 +58,6 @@ public class StudentService {
     }
 
     public List<Student> findAllEqualsGrade(Integer grade) {
-        return null;
+        return studentRepository.findAllEqualsGrade(grade);
     }
 }
