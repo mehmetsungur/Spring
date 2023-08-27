@@ -12,8 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/students") //localhost:8080/students
 @RequiredArgsConstructor
+@RequestMapping("/students") //localhost:8080/students
 public class StudentController {
     private final StudentService studentService;
 

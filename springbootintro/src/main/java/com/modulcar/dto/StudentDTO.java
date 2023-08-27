@@ -11,8 +11,8 @@ import jakarta.validation.constraints.NotBlank;
 
 @Getter
 @Service
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class StudentDTO {
     private Long id; // int id : default 0
 

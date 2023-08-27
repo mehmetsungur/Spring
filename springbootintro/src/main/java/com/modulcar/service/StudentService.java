@@ -1,13 +1,12 @@
 package com.modulcar.service;
 
+import java.util.List;
 import com.modulcar.domain.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.modulcar.exception.ConflictException;
 import com.modulcar.repository.StudentRepository;
 import com.modulcar.exception.ResourceNotFoundException;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
