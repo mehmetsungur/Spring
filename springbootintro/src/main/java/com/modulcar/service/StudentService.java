@@ -54,6 +54,6 @@ public class StudentService {
     }
 
     public Page<Student> getAllWithPage(Pageable pageable) {
-        return null;
+        return studentRepository.findAll(pageable);
     }
 }
