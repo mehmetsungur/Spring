@@ -1,13 +1,13 @@
 package com.modulcar.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
+import com.modulcar.domain.Student;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Email;
+import org.springframework.stereotype.Service;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 @Getter
 @Service
@@ -19,16 +19,26 @@ public class StudentDTO {
     @NotNull(message = "first name can not be null")
     @NotBlank(message = "first name can not be white space")
     @Size(min=2,max = 25,message = "First name '${validatedValue}' must be between {min} and {max} long")
-    private String name; //
+    private String firstName;
 
     private String lastName;
 
     private Integer grade;
 
     @Email(message = "Provide valid email")
-    private String email; // aba@
+    private String email;
 
     private String phoneNumber;
 
     private LocalDateTime createDate = LocalDateTime.now();
+
+    public StudentDTO(Student student){
+        this.id = student.getId();
+        this.firstName = student.getName();
+        this.lastName = student.getLastName();
+        this.grade = student.getGrade();
+        this.email = student.getEmail();
+        this.phoneNumber = student.getPhoneNumber();
+        this.createDate = student.getCreateDate();
+    }
 }

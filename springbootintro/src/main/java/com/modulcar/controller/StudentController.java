@@ -1,5 +1,8 @@
 package com.modulcar.controller;
 
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
 import jakarta.validation.Valid;
 import com.modulcar.domain.Student;
 import lombok.RequiredArgsConstructor;
@@ -7,10 +10,6 @@ import com.modulcar.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/students") //localhost:8080/students
