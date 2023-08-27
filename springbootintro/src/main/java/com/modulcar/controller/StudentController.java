@@ -7,14 +7,14 @@ import jakarta.validation.Valid;
 import com.modulcar.domain.Student;
 import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
-import com.modulcar.service.StudentService;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import com.modulcar.service.StudentService;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.PageRequest;
 
 @RestController
 @RequiredArgsConstructor
@@ -83,5 +83,12 @@ public class StudentController {
     public ResponseEntity<List<Student>> getStudentsEqualsGrade(@PathVariable("grade") Integer grade){
         List<Student> students = studentService.findAllEqualsGrade(grade);
         return ResponseEntity.ok(students);
+    }
+
+    // DB' den direk DTO olarak verileri almak
+    @GetMapping("/query/dto") //localhost:8080/students/query/dto?id=1
+    public ResponseEntity<StudentDTO> getStudentDTO(@RequestParam("id") Long id){
+        StudentDTO studentDTO = studentService.findStudentDtoById(id);
+        return ResponseEntity.ok(studentDTO);
     }
 }

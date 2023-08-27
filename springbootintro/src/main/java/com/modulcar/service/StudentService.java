@@ -60,4 +60,9 @@ public class StudentService {
     public List<Student> findAllEqualsGrade(Integer grade) {
         return studentRepository.findAllEqualsGrade(grade);
     }
+
+    public StudentDTO findStudentDtoById(Long id) {
+        return studentRepository.findStudentDtoById(id).orElseThrow(()->
+                new ResourceNotFoundException("Student not found with id: " + id));
+    }
 }
