@@ -78,4 +78,10 @@ public class StudentController {
 
         return ResponseEntity.ok(studentPage);
     }
+
+    @GetMapping("/grade/{grade}") //localhost:8080/students/grade/75
+    public ResponseEntity<List<Student>> getStudentsEqualsGrade(@PathVariable("grade") Integer grade){
+        List<Student> students = studentService.findAllEqualsGrade(grade);
+        return ResponseEntity.ok(students);
+    }
 }

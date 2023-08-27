@@ -56,4 +56,8 @@ public class StudentService {
     public Page<Student> getAllWithPage(Pageable pageable) {
         return studentRepository.findAll(pageable);
     }
+
+    public List<Student> findAllEqualsGrade(Integer grade) {
+        return null;
+    }
 }
