@@ -1,6 +1,9 @@
 package com.modulcar.domain;
 
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Size;
@@ -45,4 +48,7 @@ public class Student {
     @Setter(AccessLevel.NONE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss", timezone = "Turkey")
     private LocalDateTime createDate = LocalDateTime.now();
+
+    @OneToMany(mappedBy = "student")
+    private List<Book> books = new ArrayList<>();
 }
