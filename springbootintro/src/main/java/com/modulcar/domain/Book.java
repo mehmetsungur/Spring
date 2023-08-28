@@ -17,5 +17,18 @@ public class Book {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
 }
