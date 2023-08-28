@@ -33,3 +33,9 @@ logging:
     org.springframework.web: WARN
     org.hibernate: INFO
     com.modulcar: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, loggers, env, beans
