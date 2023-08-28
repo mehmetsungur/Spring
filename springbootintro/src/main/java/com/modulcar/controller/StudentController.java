@@ -3,7 +3,10 @@ package com.modulcar.controller;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
+
+import org.slf4j.LoggerFactory;
 import jakarta.validation.Valid;
+import java.util.logging.Logger;
 import com.modulcar.domain.Student;
 import com.modulcar.dto.StudentDTO;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import com.modulcar.service.StudentService;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Page;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +24,8 @@ import org.springframework.data.domain.PageRequest;
 @RequiredArgsConstructor
 @RequestMapping("/students") //localhost:8080/students
 public class StudentController {
+    Logger logger = (Logger) LoggerFactory.getLogger(StudentController.class);
+
     private final StudentService studentService;
 
     // getAll()
@@ -90,5 +96,11 @@ public class StudentController {
     public ResponseEntity<StudentDTO> getStudentDTO(@RequestParam("id") Long id){
         StudentDTO studentDTO = studentService.findStudentDtoById(id);
         return ResponseEntity.ok(studentDTO);
+    }
+
+    @GetMapping("/welcome") //localhost:8080/students/welcome + GET
+    public String welcome(HttpServletRequest request){
+        logger.warning("Welcome {}");
+        return "Welcome to Student Controller";
     }
 }
