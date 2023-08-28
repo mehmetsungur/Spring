@@ -3,6 +3,7 @@ package com.modulcar.domain;
 import lombok.Setter;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -16,6 +17,7 @@ public class Book {
     @JsonProperty("bookName")
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
