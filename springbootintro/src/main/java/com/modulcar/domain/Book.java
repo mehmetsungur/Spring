@@ -1,12 +1,9 @@
 package com.modulcar.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Setter;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Setter
@@ -18,4 +15,7 @@ public class Book {
 
     @JsonProperty("bookName")
     private String name;
+
+    @ManyToOne
+    private Student student;
 }
