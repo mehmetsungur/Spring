@@ -34,7 +34,7 @@ logging:
     org.hibernate: INFO
     com.modulcar: INFO
 
-management:
+management: #actuator
   endpoints:
     web:
       exposure:
