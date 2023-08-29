@@ -77,7 +77,11 @@
 			<artifactId>jakarta.validation-api</artifactId>
 			<version>3.0.0</version> <!-- En son sürümü kullanın -->
 		</dependency>
-
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.5.6.Final</version> <!-- Sürümü kontrol edin -->
+		</dependency>
 	</dependencies>
 
 	<build>
