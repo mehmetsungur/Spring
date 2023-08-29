@@ -1,10 +1,12 @@
 package com.modulcar.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.util.*;
 
 @Getter
 @Setter
@@ -28,4 +30,14 @@ public class User {
 
     @Column(length = 255, nullable = false)
     private String password;
+
+    @JoinTable(name = "tbl_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles = new HashSet<>();
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user")
+    private Student student;
 }
