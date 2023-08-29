@@ -11,11 +11,6 @@ spring:
     username: db_user
     password: db_password
 
-  security:
-    user:
-      name: name
-      password: password
-
   jpa:
     hibernate:
       ddl-auto: update
