@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;
