@@ -17,6 +17,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf();
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth, Object authProvider) throws Exception {
+
+    }
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
